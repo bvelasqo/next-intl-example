@@ -1,0 +1,21 @@
+{
+	"Index": {
+		"textBeforeCode": "Empezar a editar ",
+		"docs": {
+			"title": "Documentación",
+			"text": "Encuentra información sobre Next.js en la documentación."
+		},
+		"learn": {
+			"title": "Aprender",
+			"text": "Aprende sobre Next.js en la guía."
+		},
+		"templates": {
+			"title": "Plantillas",
+			"text": "Descubre y despliega plantillas de Next.js en la Vercel."
+		},
+		"deploy": {
+			"title": "Desplegar",
+			"text": "Despliega tu aplicación Next.js."
+		}
+	}
+}
