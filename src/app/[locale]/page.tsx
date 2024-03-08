@@ -1,9 +1,13 @@
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import React from 'react'
+import { useRouter } from 'next/router';
+import React, { useEffect } from 'react'
+import { getLocale, unstable_setRequestLocale } from "next-intl/server";
 
-const Landing = () => {
+const Landing = ({ params: { locale } }: any) => {
+  unstable_setRequestLocale(locale);
   const t = useTranslations('Index');
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
