@@ -1,8 +1,8 @@
+
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useRouter } from 'next/router';
-import React, { useEffect } from 'react'
-import { getLocale, unstable_setRequestLocale } from "next-intl/server";
+import React from 'react'
+import { unstable_setRequestLocale } from "next-intl/server";
 
 const Landing = ({ params: { locale } }: any) => {
   unstable_setRequestLocale(locale);

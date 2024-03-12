@@ -26,6 +26,7 @@ export default function LocaleLayout({
   params: { locale: string };
 }>) {
   unstable_setRequestLocale(locale);
+  console.log('locale', locale);
 
   return (
     <html lang={locale ?? 'en'}>

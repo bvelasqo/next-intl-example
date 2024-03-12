@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/request-ip": "^0.0.41",
+    "ip2location-io-nodejs": "^1.0.4",
     "next": "14.1.3",
     "next-intl": "^3.9.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "request-ip": "^3.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",
