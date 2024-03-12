@@ -4,9 +4,9 @@ import { headers } from 'next/headers';
 import { log } from 'console';
 
 // Can be imported from a shared config
-const locales = ['en', 'es', 'fr'];
+const locales = ['en', 'es', 'fr', 'co', 'ar', 'br', 'cl', 'mx', 'pe', 'uy', 've'];
 
-export default getRequestConfig(async ({ locale }) => {
+export default getRequestConfig(async () => {
   // Validate that the incoming `locale` parameter is valid
   const header = headers()
   let ip = header.get('x-real-ip') as string;
