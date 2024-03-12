@@ -46,11 +46,15 @@ async function getCountryByIp(ip: string) {
   return data.countryCode?.toLowerCase() ?? 'en';
 }
 
+const countrySpanish = ['es', 'mx', 'ar', 'co', 'pe', 've', 'cl', 'ec', 'gt', 'cu', 'bo', 'do', 'hn', 'py', 'sv', 'ni', 'cr', 'uy', 'pa', 'pr'];
+const countryFrench = ['fr', 'ca', 'be', 'ch', 'lu'];
+
 function getLangByCountryCode(countryCode: string) {
+  console.log('country code', countryCode);
   switch (countryCode) {
-    case 'es' || 'mx' || 'ar' || 'co' || 'pe' || 've' || 'cl' || 'ec' || 'gt' || 'cu' || 'bo' || 'do' || 'hn' || 'py' || 'sv' || 'ni' || 'cr' || 'uy' || 'pa' || 'pr':
+    case countrySpanish.includes(countryCode) ? countryCode : '':
       return 'es';
-    case 'fr' || 'ca' || 'be' || 'ch' || 'lu':
+    case countryFrench.includes(countryCode) ? countryCode : '':
       return 'fr';
     default:
       return 'en';
