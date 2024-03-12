@@ -15,7 +15,7 @@ export default async function middleware(request: NextRequest) {
   const handleI18nRouting = createIntlMiddleware({
     // A list of all locales that are supported
     locales: ['en', 'es', 'fr'],
-    defaultLocale: lang,
+    defaultLocale: getLangByCountryCode(lang),
     // Used when no locale matches
     localeDetection: false,
     localePrefix: 'always',
@@ -44,4 +44,15 @@ async function getCountryByIp(ip: string) {
   const data = await response.json();
   console.log('data', data);
   return data.countryCode?.toLowerCase() ?? 'en';
+}
+
+function getLangByCountryCode(countryCode: string) {
+  switch (countryCode) {
+    case 'es' || 'mx' || 'ar' || 'co' || 'pe' || 've' || 'cl' || 'ec' || 'gt' || 'cu' || 'bo' || 'do' || 'hn' || 'py' || 'sv' || 'ni' || 'cr' || 'uy' || 'pa' || 'pr':
+      return 'es';
+    case 'fr' || 'ca' || 'be' || 'ch' || 'lu':
+      return 'fr';
+    default:
+      return 'en';
+  }
 }
