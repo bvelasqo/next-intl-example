@@ -15,10 +15,17 @@ export default getRequestConfig(async ({ locale }) => {
   if (!ip && forwardedFor) {
     ip = forwardedFor?.split(",").at(0) ?? "Unknown";
   }
-  const lang = locale || 'en';
+  const lang = await getCountryByIp(ip);
   if (!locales.includes(lang as any)) notFound();
-  console.log('ip', ip);
+  console.log('lang', lang);
   return {
     messages: (await import(`../messages/${lang}.json`)).default
   };
 });
+
+async function getCountryByIp(ip: string) {
+  const response = await fetch(`http://ip-api.com/json/${ip}`);
+  const data = await response.json();
+  console.log('data', data);
+  return data.countryCode?.toLowerCase() ?? 'en';
+}

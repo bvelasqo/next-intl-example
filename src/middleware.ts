@@ -1,15 +1,12 @@
 import { NextFetchEvent, NextRequest, NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
-const RESTRICTED_COUNTRIES = ["CN", "RU", "KP", "IR", "SY", "CU", "SD", "GB"]
+
 export async function middleware(request: NextRequest, _next: NextFetchEvent) {
   const res = NextResponse.next();
   console.log('request.geo', request.geo);
   const country = request.geo?.country ?? ""
   
   console.log('country', country);
-  if(RESTRICTED_COUNTRIES.includes(country)){
-    return NextResponse.rewrite(new URL("/restricted", request.url))
-  }
   return res;
 }
 
